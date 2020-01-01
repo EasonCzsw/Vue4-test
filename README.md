@@ -48,3 +48,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## 加载首页轮播图效果
 1.获取数据，使用vue-resource
+2.使用 vue-resource 的 this.$http.get 获取数据
+3.获取数据，保存到data
+4.使用v-for 循环渲染每个item项

@@ -9,6 +9,7 @@ import Search from "../components/tabbar/search.vue";
 const router = new VueRouter({
   routes: [
     // 配置路由规则
+    { path: "/", redirect: Home },
     { path: "/home", component: Home },
     { path: "/member", component: Member },
     { path: "/shopcar", component: Shopcar },

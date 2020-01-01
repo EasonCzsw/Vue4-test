@@ -72,6 +72,9 @@
     .mui-grid-view.mui-grid-9 .mui-table-view-cell {
         border: 0;
     }
+    .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+        font-size: 13px;
+    }
     .menuImg {
         width: 60px;
         height: 60px;

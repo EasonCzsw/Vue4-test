@@ -51,3 +51,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 2.使用 vue-resource 的 this.$http.get 获取数据
 3.获取数据，保存到data
 4.使用v-for 循环渲染每个item项
+
+## 改造九宫格区域的样式
+
+## 默认首页 添加动画效果transtion

@@ -3,16 +3,18 @@
         <h3>新闻列表</h3>
         <ul class="mui-table-view">
             <li class="mui-table-view-cell mui-media" v-for="item in textList" :key="item.name">
-                <a href="javascript:;">
+                <router-link to="/home/newsinfo">
                     <img class="mui-media-object mui-pull-left" src="../../../assets/logo.png">
                     <div class="mui-media-body">
-                        {{ item.name }}
+                        <a href="javascript:;">
+                            {{ item.name }}
+                        </a>
                         <p class='mui-ellipsis'>
                             <span>发表时间: {{ showTime }}</span>
                             <span>点击: {{ c }} 次</span>
                         </p>
                     </div>
-                </a>
+                </router-link>
             </li>
         </ul>
     </div>
@@ -67,6 +69,6 @@
         display: flex;
         justify-content: space-between;
         font-size: 12px;
-        color: #226aff;
+        color: gray;
     }
 </style>

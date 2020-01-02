@@ -15,7 +15,9 @@
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/newslist">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu1.png" alt="menu">
-                    <div class="mui-media-body">新闻资讯</div>
+                    <div class="mui-media-body">
+                        <a href="javascript:;">新闻资讯</a>
+                    </div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">

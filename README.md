@@ -61,3 +61,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 2. 绘制界面 media-list
 3. 使用vue-resource获取数据
 4. 渲染真实数据
+
+## 时间内容修改
+
+## 实现列表内容的详情跳转
+1. 改变每一项列表为 router-link, 跳转时提供唯一标识符
+2. 创建详情组件页面
+3. 在路由模块中，将详情的路由地址和组件页面对应起来

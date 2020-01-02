@@ -12,9 +12,12 @@
 
         <!-- 九宫格 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <router-link to="/home/newslist">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu1.png" alt="menu">
-                    <div class="mui-media-body">新闻资讯</div></a></li>
+                    <div class="mui-media-body">新闻资讯</div>
+                </router-link>
+            </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu2.png" alt="menu">
                     <div class="mui-media-body">图品分享</div></a></li>
@@ -43,15 +46,14 @@
             }
         },
         created() {
-            this.getLunbotu();
+            this.getText();
         },
         methods: {
-            getLunbotu() {
+            getText() {
                 this.$http({
                     method: 'GET',
                     url: this.getImgUrl
                 }).then((result) => {
-                    console.log(result.body);
                     this.imgList = result.body;
                 });
             }

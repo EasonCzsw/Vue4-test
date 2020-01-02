@@ -55,3 +55,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## 改造九宫格区域的样式
 
 ## 默认首页 添加动画效果transtion
+
+## 改造 newslist 路由链接
+1. 新闻资讯链接
+2. 绘制界面 media-list
+3. 使用vue-resource获取数据
+4. 渲染真实数据

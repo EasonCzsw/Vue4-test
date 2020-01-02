@@ -5,6 +5,7 @@ import Home from "../components/tabbar/home.vue";
 import Member from "../components/tabbar/member.vue";
 import Shopcar from "../components/tabbar/shopcar.vue";
 import Search from "../components/tabbar/search.vue";
+import NewsList from "../components/tabbar/news/newslist.vue";
 
 const router = new VueRouter({
   routes: [
@@ -13,7 +14,8 @@ const router = new VueRouter({
     { path: "/home", component: Home },
     { path: "/member", component: Member },
     { path: "/shopcar", component: Shopcar },
-    { path: "/search", component: Search }
+    { path: "/search", component: Search },
+    { path: "/home/newslist", component: NewsList }
   ],
   linkActiveClass: "mui-active" // 覆盖默认的路由高亮类
 });

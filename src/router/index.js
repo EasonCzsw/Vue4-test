@@ -6,7 +6,7 @@ import Member from "../components/tabbar/member.vue";
 import Shopcar from "../components/tabbar/shopcar.vue";
 import Search from "../components/tabbar/search.vue";
 import NewsList from "../components/tabbar/news/newslist.vue";
-import Newsinfo from "../components/tabbar/news/newsinfo.vue"
+import Newsinfo from "../components/tabbar/news/newsinfo.vue";
 
 const router = new VueRouter({
   routes: [

@@ -17,10 +17,14 @@ import router from "./router/index.js";
 // 导入vue-resource
 import VueResource from "vue-resource";
 
+// 跨域配置
+import axios from 'axios';
+
 // 安装组件
 Vue.use(VueRouter);
 Vue.use(Mint);
 Vue.use(VueResource);
+Vue.prototype.$axios = axios;
 
 // 定义vue
 var vm = new Vue({

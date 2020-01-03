@@ -2,10 +2,16 @@
     <div>
         <p v-for='item in newslist' :key="item.email">{{ item.email }}</p>
         <img src="../../../assets/logo.png" alt="">
+        
+        <!-- 评论子组件 -->
+        <comment-box></comment-box>
     </div>
 </template>
 
 <script>
+    // 导入 评论子组件
+    import comment from "../subcomponents/comment.vue";
+
     export default {
         data() {
             return {
@@ -26,6 +32,9 @@
                 });
             }
         },
+        components: {
+            'comment-box': comment
+        }
     }
 </script>
 

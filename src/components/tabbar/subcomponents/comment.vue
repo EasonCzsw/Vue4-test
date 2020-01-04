@@ -27,7 +27,6 @@
                 newsMsg: [],
                 showTime: '',
                 getNamesUrl: "http://jsonplaceholder.typicode.com/users",
-                getNewsMsg: "/api/v.juhe.cn/toutiao/index?type=top&key=48394c2938d028445b94cafab90464c9"
             }
         },
         created() {
@@ -56,13 +55,9 @@
                 });
             },
             getMsg() {
-                this.$http({
-                    method: 'GET',
-                    url: this.getNewsMsg
-                }).then((result) => {
-                    console.log(result.body.reason);
-                    console.log(this.newsMsg);
-                });
+                this.$http.jsonp("simpleWeather/query?city=淄博&key=8bf2c9e4cfa84185b828d4fe0b96375a").then( (result)=>{
+                    console.log(result.body);
+                })
             },
             
         },

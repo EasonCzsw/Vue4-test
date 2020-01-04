@@ -18,13 +18,16 @@ import router from "./router/index.js";
 import VueResource from "vue-resource";
 
 // 跨域配置
-import axios from 'axios';
+// import axios from "axios";
+// import VueAxios from "vue-axios";
 
 // 安装组件
 Vue.use(VueRouter);
 Vue.use(Mint);
 Vue.use(VueResource);
-Vue.prototype.$axios = axios;
+Vue.http.options.root = "http://apis.juhe.cn";
+// Vue.use(axios, VueAxios);
+Vue.config.productionTip = false;
 
 // 定义vue
 var vm = new Vue({

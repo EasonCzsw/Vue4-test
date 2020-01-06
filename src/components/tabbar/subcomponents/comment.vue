@@ -7,7 +7,7 @@
         <div class="cmt-list">
             <div class="cmt-item" v-for="(item, i) in nameslist" :key="item.id">
                 <div class="cmt-title">
-                    第{{ i + 1 }}楼用户：{{ item.id }}
+                    第{{ i + 1 }}楼用户：{{ i + 1 }}
                     <span style="float: right;"> 时间：{{ showTime }} </span>
                 </div>
                 <div class="cmt-body">
@@ -20,9 +20,7 @@
 </template>
 
 <script>
-    import Vue from 'vue';
-    var vueResource = require('vue-resource');
-    Vue.use(vueResource);
+    import { Toast } from "mint-ui";
 
     export default {
         data() {
@@ -59,10 +57,16 @@
                 this.getNames();
             },
             postComment() {
-                console.log();
-                // this.$http.post("http://jsonplaceholder.typicode.com/posts").then((res)=> {
-                //     console.log(res.data);
-                // });
+                if (this.msg.trim().length === 0) {
+                    return Toast('评论不为空!');
+                }
+                this.$http.post("https://jsonplaceholder.typicode.com/posts", {
+                    aid: this.nameslist.length+1,
+                    body: this.msg.trim()
+                }).then((res)=> {
+                    this.nameslist.concat(this.nameslist.unshift(res.data));
+                    this.nameslist.id = this.nameslist.aid;
+                });
             },
         },
     }

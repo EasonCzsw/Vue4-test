@@ -29,6 +29,10 @@ Vue.use(VueResource);
 // Vue.use(axios);
 // Vue.use(VueAxios);
 Vue.config.productionTip = false;
+// Vue.http.headers.common["Authorization"] = "Basic YXBpOnBhc3N3b3Jk";
+
+// 全局设置post true
+Vue.http.options.emulateJSON = true;
 
 // 定义vue
 var vm = new Vue({

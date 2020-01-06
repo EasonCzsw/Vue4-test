@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h3>新闻列表</h3>
         <ul class="mui-table-view">
             <li class="mui-table-view-cell mui-media" v-for="item in textList" :key="item.id">
                 <router-link to="/home/newsinfo">

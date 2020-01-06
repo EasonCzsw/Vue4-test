@@ -6,7 +6,8 @@ import Member from "../components/tabbar/member.vue";
 import Shopcar from "../components/tabbar/shopcar.vue";
 import Search from "../components/tabbar/search.vue";
 import NewsList from "../components/tabbar/news/newslist.vue";
-import Newsinfo from "../components/tabbar/news/newsinfo.vue";
+import NewsInfo from "../components/tabbar/news/newsinfo.vue";
+import PhotoList from "../components/tabbar/photos/photolist.vue";
 
 const router = new VueRouter({
   routes: [
@@ -17,7 +18,8 @@ const router = new VueRouter({
     { path: "/shopcar", component: Shopcar },
     { path: "/search", component: Search },
     { path: "/home/newslist", component: NewsList },
-    { path: "/home/newsinfo", component: Newsinfo }
+    { path: "/home/newsinfo", component: NewsInfo },
+    { path: "/home/photolist", component: PhotoList }
   ],
   linkActiveClass: "mui-active" // 覆盖默认的路由高亮类
 });

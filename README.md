@@ -86,3 +86,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 3. 判断文本框内是否为空
 4. post上传数据提交服务器
 5. 自动刷新加载发表的数据
+
+## 图片分享
+
+## 图片列表样式
+1. 顶部滑动条
+2. 底部图片列表

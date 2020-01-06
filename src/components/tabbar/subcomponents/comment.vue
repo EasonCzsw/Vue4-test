@@ -2,37 +2,40 @@
     <div class="cmt-container">
         <h3>发表评论</h3>
         <hr>
-        <textarea maxlength="120" placeholder="请输入要评论的内容"></textarea>
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <textarea maxlength="120" placeholder="请输入要评论的内容" v-model="msg"></textarea>
+        <mt-button type="primary" size="large" @click="postComment()">发表评论</mt-button>
         <div class="cmt-list">
-            <div class="cmt-item" v-for="(item, i) in nameslist" :key="item.name">
+            <div class="cmt-item" v-for="(item, i) in nameslist" :key="item.id">
                 <div class="cmt-title">
-                    第{{ i + 1 }}楼用户：{{ item.name }}
+                    第{{ i + 1 }}楼用户：{{ item.id }}
                     <span style="float: right;"> 时间：{{ showTime }} </span>
                 </div>
                 <div class="cmt-body">
-                    {{ item.company.bs }}
+                    {{ item.body }}
                 </div>
             </div>
         </div>
-        <mt-button type="danger" size="large" plain>加载更多</mt-button>
+        <mt-button type="danger" size="large" @click="getMsg()" plain>加载更多</mt-button>
     </div>
 </template>
 
 <script>
+    import Vue from 'vue';
+    var vueResource = require('vue-resource');
+    Vue.use(vueResource);
+
     export default {
         data() {
             return {
                 nameslist: [],
-                newsMsg: [],
                 showTime: '',
-                getNamesUrl: "http://jsonplaceholder.typicode.com/users",
+                msg: '',
+                userId: 1
             }
         },
         created() {
             this.getNames();
             this.getTime();
-            this.getMsg();
         },
         methods: {
             getTime() {
@@ -47,19 +50,20 @@
                 this.showTime = year+'.'+mon+'.'+da+'.'+'周'+day+' '+h+':'+m+':'+s;
             },
             getNames() {
-                this.$http({
-                    method: 'GET',
-                    url: this.getNamesUrl
-                }).then((result) => {
-                    this.nameslist = result.body;
+                this.$http.get("http://jsonplaceholder.typicode.com/posts?userId=" + this.userId).then((result)=> {
+                    this.nameslist = this.nameslist.concat(result.body);
                 });
             },
             getMsg() {
-                this.$http.jsonp("simpleWeather/query?city=淄博&key=8bf2c9e4cfa84185b828d4fe0b96375a").then( (result)=>{
-                    console.log(result.body);
-                })
+                this.userId++;
+                this.getNames();
             },
-            
+            postComment() {
+                console.log();
+                // this.$http.post("http://jsonplaceholder.typicode.com/posts").then((res)=> {
+                //     console.log(res.data);
+                // });
+            },
         },
     }
 </script>

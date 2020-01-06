@@ -25,8 +25,9 @@ import VueResource from "vue-resource";
 Vue.use(VueRouter);
 Vue.use(Mint);
 Vue.use(VueResource);
-Vue.http.options.root = "http://apis.juhe.cn";
-// Vue.use(axios, VueAxios);
+// Vue.http.options.root = "http://v.juhe.cn/joke/content/list.php";
+// Vue.use(axios);
+// Vue.use(VueAxios);
 Vue.config.productionTip = false;
 
 // 定义vue

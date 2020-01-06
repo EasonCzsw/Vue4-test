@@ -1,7 +1,8 @@
 <template>
     <div>
-        <p v-for='item in newslist' :key="item.email">{{ item.email }}</p>
-        <img src="../../../assets/logo.png" alt="">
+        <p v-for='item in newslist' :key="item.email">{{ item.email }}
+            <img src="../../../assets/logo.png" alt="" width="50px" height="50px">
+        </p>
         
         <!-- 评论子组件 -->
         <comment-box></comment-box>

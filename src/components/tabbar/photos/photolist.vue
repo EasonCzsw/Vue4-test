@@ -26,6 +26,24 @@
 
 <script>
     // 图片数据 http://jsonplaceholder.typicode.com/photos
+    // 导入 mui 的js文件 
+    // import mui from '../../../mui/mui-master/examples/hello-mui/js/mui.min.js'
+
+    // 
+    // mui('.mui-scroll-wrapper').scroll({
+    //     deceleration: 0.0005
+    // });
+
+    export default {
+        data() {
+            return {
+                
+            }
+        },
+        methods: {
+            
+        },
+    }
 </script>
 
 <style lang="less">

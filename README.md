@@ -94,4 +94,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     + 借助 MUI 中的 tab-top-webview-main.html
     + 去掉 id 为 silder 区域的全局class mui-fullscreen
     + 滑动条滑动需要添加 MUI 自带的js文件 
+    * {
+        touch-action: pan-y 
+    }
+    + 为了配合使用muiscroll 修改类名:mui-tab-item-ll
 2. 底部图片列表
+    + 懒加载lazy load

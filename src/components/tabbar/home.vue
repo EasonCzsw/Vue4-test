@@ -91,7 +91,7 @@
         width: 60px;
         height: 60px;
     }
-    .LBT > img {
+    .LBT {
         width: 100%;
         height: 100%;
     }

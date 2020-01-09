@@ -17,6 +17,9 @@ import router from "./router/index.js";
 // 导入vue-resource
 import VueResource from "vue-resource";
 
+// 导入 vue-preview
+import VuePreview from "vue-preview";
+
 // 跨域配置
 // import axios from "axios";
 // import VueAxios from "vue-axios";
@@ -25,11 +28,11 @@ import VueResource from "vue-resource";
 Vue.use(VueRouter);
 Vue.use(Mint);
 Vue.use(VueResource);
+Vue.use(VuePreview);
 // Vue.http.options.root = "http://v.juhe.cn/joke/content/list.php";
 // Vue.use(axios);
 // Vue.use(VueAxios);
 Vue.config.productionTip = false;
-// Vue.http.headers.common["Authorization"] = "Basic YXBpOnBhc3N3b3Jk";
 
 // 全局设置post true
 Vue.http.options.emulateJSON = true;

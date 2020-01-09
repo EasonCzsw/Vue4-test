@@ -2,8 +2,7 @@
     <div>
         <!-- 轮播图 -->
         <mt-swipe :auto="4000"> 
-            <mt-swipe-item v-for='(item, i) in imgList' :key="item">
-                <span>{{i++}}</span>
+            <mt-swipe-item v-for='item in imgList' :key="item">
                 <img class='LBT' alt="logo" :src="item">
             </mt-swipe-item>
         </mt-swipe>

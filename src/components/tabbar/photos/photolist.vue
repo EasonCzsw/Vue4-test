@@ -10,10 +10,14 @@
         </div>
 
         <!-- 图片 -->
-        <ul>
-            <li v-for="item in imgList" :key="item.url">
+        <ul class="photos-list">
+            <router-link v-for="item in imgList" :key="item.url" to="/home/photoinfo" tag="li">
                 <img v-lazy="item.url">
-            </li>
+                <div class="info">
+                    <h1 class="info-title">{{ item.title }}</h1>
+                    <div class="info-body">{{ item.url }}</div>
+                </div>
+            </router-link>
         </ul>
     </div>
 </template>
@@ -40,17 +44,19 @@
             getAllImg() {
                 this.$http.get('http://jsonplaceholder.typicode.com/photos').then(res => {
                     var list = []; 
+                    console.log(res.data);
                     res.data.filter((e) => {
-                        if (e.id < 11) {
+                        if (e.id > 100 && e.id < 107) {
                             list.push({
                                 id: e.id,
+                                title: e.title,
                                 url: e.url
                             });
                         }
                     });
                     this.imgList = list;
                 })
-            }
+            },
         },
     }
 </script>
@@ -59,14 +65,42 @@
     * {
         touch-action: pan-y;
     }
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+    .mui-slider {
+        z-index: 0;
     }
     img {
         width: 100%;
-        height: 200px;
         margin: auto;
+    }
+    .photos-list {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+        padding-bottom: 0;
+    }
+    .photos-list li {
+        position: relative;
+        background-color: #ccc;
+        text-align: center;
+        margin-bottom: 10px;
+        box-shadow: 0 0 6px #999;
+    }
+    .photos-list > img[lazy="loading"] {
+        width: 10rem;
+        height: 10rem;
+        margin: auto;
+    }
+    .info {
+        color: white;
+        text-align: left;
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .info-title {
+        font-size: 14px;
+    }
+    .info-body {
+        font-size: 13px;
     }
 </style>

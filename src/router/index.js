@@ -8,6 +8,7 @@ import Search from "../components/tabbar/search.vue";
 import NewsList from "../components/tabbar/news/newslist.vue";
 import NewsInfo from "../components/tabbar/news/newsinfo.vue";
 import PhotoList from "../components/tabbar/photos/photolist.vue";
+import Photoinfo from "../components/tabbar/photos/photoinfo.vue";
 
 const router = new VueRouter({
   routes: [
@@ -19,7 +20,8 @@ const router = new VueRouter({
     { path: "/search", component: Search },
     { path: "/home/newslist", component: NewsList },
     { path: "/home/newsinfo", component: NewsInfo },
-    { path: "/home/photolist", component: PhotoList }
+    { path: "/home/photolist", component: PhotoList },
+    { path: "/home/photoinfo", component: Photoinfo }
   ],
   linkActiveClass: "mui-active" // 覆盖默认的路由高亮类
 });

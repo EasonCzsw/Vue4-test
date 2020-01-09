@@ -41,6 +41,9 @@
   padding-bottom: 50px;
   overflow-x: hidden;
 }
+.mt-header {
+  z-index: 99;
+}
 
 /* 动画 */
 .v-enter {

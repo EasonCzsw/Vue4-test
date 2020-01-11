@@ -100,3 +100,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     + 为了配合使用muiscroll 修改类名:mui-tab-item-ll
 2. 底部图片列表
     + 懒加载lazy load
+3. 实现图片详情页面
+
+## 实现图片详情缩略图
+1. 使用vue-preview插件
+2. 获取图片列表
+
+## 绘制商品列表
+
+## 尝试手机预览和测试

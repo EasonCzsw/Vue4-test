@@ -13,7 +13,7 @@
                 <router-link to="/home/newslist">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu1.png" alt="menu">
                     <div class="mui-media-body">
-                        <a href="javascript:;">新闻资讯</a>
+                        <a href="javascript:;" style="color: #333;">新闻资讯</a>
                     </div>
                 </router-link>
             </li>
@@ -21,13 +21,18 @@
                 <router-link to="/home/photolist">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu2.png" alt="menu">
                     <div class="mui-media-body">
-                        <a href="javascript:;">图片分享</a>
+                        <a href="javascript:;" style="color: #333;">图片分享</a>
                     </div>
                 </router-link>
             </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <router-link to="/home/shopping">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu3.png" alt="menu">
-                    <div class="mui-media-body">商品购买</div></a></li>
+                    <div class="mui-media-body">
+                        <a href="javascript:;" style="color: #333;">商品购买</a>
+                    </div>
+                </router-link>
+            </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu4.png" alt="menu">
                     <div class="mui-media-body">留言反馈</div></a></li>

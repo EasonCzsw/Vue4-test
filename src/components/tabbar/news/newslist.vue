@@ -2,7 +2,7 @@
     <div>
         <ul class="mui-table-view">
             <li class="mui-table-view-cell mui-media" v-for="item in textList" :key="item.id">
-                <router-link to="/home/newsinfo">
+                <router-link :to="'/home/newsinfo/'+item.id">
                     <img class="mui-media-object mui-pull-left" src="../../../assets/logo.png">
                     <div class="mui-media-body">
                         <a href="javascript:;">

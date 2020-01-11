@@ -4,14 +4,14 @@
         <div id="slider" class="mui-slider">
             <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
                 <div class="mui-scroll">
-                    <a :class="['mui-control-item', item.id === 1 ? 'mui-active' : '']" v-for="item in imgList" :key="item.id">{{'第' + item.id + '组'}}</a>
+                    <a :class="['mui-control-item',item.id == 101 ? 'mui-active' : ' ']" v-for="item in imgList" :key="item.id">{{'第' + item.id + '组'}}</a>
                 </div>
             </div>
         </div>
 
         <!-- 图片 -->
         <ul class="photos-list">
-            <router-link v-for="item in imgList" :key="item.url" to="/home/photoinfo" tag="li">
+            <router-link v-for="item in imgList" :key="item.id" :to="'/home/photoinfo/' + item.id" tag="li">
                 <img v-lazy="item.url">
                 <div class="info">
                     <h1 class="info-title">{{ item.title }}</h1>
@@ -44,7 +44,6 @@
             getAllImg() {
                 this.$http.get('http://jsonplaceholder.typicode.com/photos').then(res => {
                     var list = []; 
-                    console.log(res.data);
                     res.data.filter((e) => {
                         if (e.id > 100 && e.id < 107) {
                             list.push({

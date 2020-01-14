@@ -11,6 +11,8 @@ import PhotoList from "../components/tabbar/photos/photolist.vue";
 import Photoinfo from "../components/tabbar/photos/photoinfo.vue";
 import Shopping from "../components/shopping/shopping.vue";
 import Shopinfo from "../components/shopping/shopinfo.vue";
+import Shopdesc from "../components/shopping/shopmain/shopdesc.vue";
+import Shopcommit from "../components/shopping/shopmain/shopcommit.vue";
 
 const router = new VueRouter({
   routes: [
@@ -25,7 +27,9 @@ const router = new VueRouter({
     { path: "/home/photolist", component: PhotoList },
     { path: "/home/photoinfo/:id", component: Photoinfo },
     { path: "/home/shopping", component: Shopping },
-    { path: "/home/shopinfo/:id", component: Shopinfo, name: "shopinfo" }
+    { path: "/home/shopinfo/:id", component: Shopinfo, name: "shopinfo" },
+    { path: "/home/shopdesc/:id", component: Shopdesc, name: "shopdesc" },
+    { path: "/home/shopcommit/:id", component: Shopcommit, name: "shopcommit" }
   ],
   linkActiveClass: "mui-active" // 覆盖默认的路由高亮类
 });

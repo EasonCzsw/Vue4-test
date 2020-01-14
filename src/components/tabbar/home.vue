@@ -1,11 +1,7 @@
 <template>
     <div>
         <!-- 轮播图 -->
-        <mt-swipe :auto="4000"> 
-            <mt-swipe-item v-for='item in imgList' :key="item">
-                <img class='LBT' alt="logo" :src="item">
-            </mt-swipe-item>
-        </mt-swipe>
+        <swiper :imgList="List" :isfull="false"></swiper>
 
         <!-- 九宫格 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -47,10 +43,13 @@
 </template>
 
 <script>
+    // 传入轮播图组件
+    import swiper from '../tabbar/subcomponents/swiper/swiper.vue';
+
     export default {
         data() {
             return {
-                imgList: [],
+                List: [],
                 getImgUrl: 'http://jsonplaceholder.typicode.com/photos'
             }
         },
@@ -69,18 +68,27 @@
                             list.push(e.url);
                         }
                     });
-                    this.imgList = list;
+                    this.List = list;
                 });
             }
         },
+        // 挂载组件
+        components: {
+            swiper
+        }
     }
 </script>
 
 <style lang="less">
-    .mint-swipe {
+    /* .mint-swipe {
         height: 200px;
         width: 100%;
     }
+    .LBT {
+        width: 100%;
+        height: 100%;
+    } */
+
     .mui-grid-view.mui-grid-9 {
         background-color: #fff;
         border: none;
@@ -94,9 +102,5 @@
     .menuImg {
         width: 60px;
         height: 60px;
-    }
-    .LBT {
-        width: 100%;
-        height: 100%;
     }
 </style>

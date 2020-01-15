@@ -1,5 +1,12 @@
 <template>
-    <div>
+    <div class="shopinfo">
+        <transition 
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter">
+            <div class="ball" ref="ball" v-show="ballFlag"></div>
+        </transition>
+
         <!-- 商品轮播图区域 -->
         <div class="mui-card">
             <div class="mui-card-content">
@@ -16,10 +23,13 @@
                     <p class="price">
                         市场价：<del>￥2399</del>&nbsp;&nbsp;销售价：<span class="now_price">￥2199</span>
                     </p>
-                    <p>购买数量：<numberbox></numberbox></p>
+                    <p>购买数量：<numberbox @getcount="getSelectedCount"
+                    :max="num"    
+                        ></numberbox></p>
                     <p>
                         <mt-button type="primary" szie="small">立即购买</mt-button>
-                        <mt-button type="danger" szie="small">立即购买</mt-button>
+                        &nbsp;
+                        <mt-button type="danger" szie="small" @click="addShopcar">加入购物车</mt-button>
                     </p>
                 </div>
             </div>
@@ -30,9 +40,9 @@
             <div class="mui-card-header">页眉</div>
             <div class="mui-card-content">
                 <div class="mui-card-content-inner mui-card-l" v-for="item in textList" :key="item.id">
-                    <p>商品货号：{{ item.id }}</p>
-                    <p>库存情况：{{ item.num }}</p>
-                    <p>上架时间：{{ item.time }}</p>
+                    <p>商品货号：{{ item }}</p>
+                    <p>库存情况：{{ num }}</p>
+                    <p>上架时间：{{ time }}</p>
                 </div>
             </div>
             <div class="mui-card-footer">
@@ -53,7 +63,11 @@
             return {
                 id: this.$route.params.id,
                 imgTyUrl:[],
-                textList:[]
+                textList:[],
+                ballFlag: false, // 隐藏显示
+                selectedCount: 1, // 默认数量1
+                time: new Date(),
+                num: 60
             }
         },
         created() {
@@ -75,28 +89,49 @@
             getText() {
                 this.$http.get("http://jsonplaceholder.typicode.com/users/" + this.id).then(res=>{
                     if (res.status === 200) {
-                        this.textList.push({
-                            id: res.data.name,
-                            num: res.data.id,
-                            time: new Date()
-                        })
+                        this.textList.push(res.data.id)
                     }
                 });
             },
             goDesc(id) {
                 this.$router.push({ name: "shopdesc",params: { id } });
-                console.log(id);
             },
             goCommit(id) {
                 this.$router.push({ name: "shopcommit", params: { id } })
-                console.log(id);
+            },
+
+            // 小球
+            addShopcar() {
+                this.ballFlag = !this.ballFlag;
+            },
+            beforeEnter(el) {
+                el.style.transform = "translate(0,0)";
+            },
+            enter(el) {
+                el.offsetWidth;
+                
+                // 获取小球在页面的位置
+                // let ballPosition = this.$refs.ball.getBoundingClientRect();
+                // let badgePosition = document.getElementById('badge').getBoundingClientRect();
+
+                el.style.transform = `translate(${ document.getElementById('badge').getBoundingClientRect().left - el.getBoundingClientRect().left }px, ${ document.getElementById('badge').getBoundingClientRect().top - el.getBoundingClientRect().top }px)`;
+                el.style.transition = "all 1s cubic-bezier(.4, -0.3,1,.68)";
+            },
+            afterEnter() {
+                this.ballFlag = !this.ballFlag;
+            },
+            getSelectedCount(count) {
+                this.selectedCount = count;
             }
         },
         // 挂载组件
         components: {
             swiper,
             numberbox
-        }
+        },
+        mounted() {
+            console.log(this.num);
+        },
     }
 </script>
 
@@ -115,5 +150,15 @@
     .mint-button--primary.is-plain, .mint-button--danger.is-plain {
         width: 100%;
         margin-bottom: 15px;
+    }
+    .shopinfo .ball {
+        position: absolute;
+        top: 390px;
+        left: 146px;
+        z-index: 99;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: red;
     }
 </style>

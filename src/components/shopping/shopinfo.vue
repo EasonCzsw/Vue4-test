@@ -15,17 +15,20 @@
                 </div>
             </div>
         </div>
+        
         <!-- 商品购买区域 -->
         <div class="mui-card">
-            <div class="mui-card-header">页眉</div>
+            <div class="mui-card-header">商品</div>
             <div class="mui-card-content">
                 <div class="mui-card-content-inner mui-card-l">
                     <p class="price">
-                        市场价：<del>￥2399</del>&nbsp;&nbsp;销售价：<span class="now_price">￥2199</span>
+                        市场价：<del>￥999</del>&nbsp;&nbsp;销售价：<span class="now_price">￥{{ this.price }}</span>
                     </p>
-                    <p>购买数量：<numberbox @getcount="getSelectedCount"
+                    <p>购买数量：
+                        <numberbox @getcount="getSelectedCount"
                     :max="num"    
-                        ></numberbox></p>
+                        ></numberbox>
+                    </p>
                     <p>
                         <mt-button type="primary" szie="small">立即购买</mt-button>
                         &nbsp;
@@ -37,7 +40,7 @@
 
         <!-- 商品参数区域 -->
         <div class="mui-card">
-            <div class="mui-card-header">页眉</div>
+            <div class="mui-card-header">商品</div>
             <div class="mui-card-content">
                 <div class="mui-card-content-inner mui-card-l" v-for="item in textList" :key="item.id">
                     <p>商品货号：{{ item }}</p>
@@ -67,7 +70,8 @@
                 ballFlag: false, // 隐藏显示
                 selectedCount: 1, // 默认数量1
                 time: new Date(),
-                num: 60
+                num: 60,
+                price: 899
             }
         },
         created() {
@@ -79,7 +83,7 @@
                 this.$http.get("http://jsonplaceholder.typicode.com/photos").then(res=>{
                     if (res.status === 200) { 
                         res.data.filter(e=>{
-                            if (e.id < 7) {
+                            if (e.id == this.id) {
                                 this.imgTyUrl.push(e.url);
                             }
                         })
@@ -103,6 +107,17 @@
             // 小球
             addShopcar() {
                 this.ballFlag = !this.ballFlag;
+                // 加入购物车获取的数据
+                var goodsinfo = 
+                {
+                    id: '商品'+this.id, 
+                    count: this.selectedCount,
+                    price: this.price,
+                    url: '' + this.imgTyUrl[0],
+                    selected: true
+                }
+                console.log(goodsinfo);
+                this.$store.commit('addToCar', goodsinfo);
             },
             beforeEnter(el) {
                 el.style.transform = "translate(0,0)";
@@ -130,7 +145,7 @@
             numberbox
         },
         mounted() {
-            console.log(this.num);
+            
         },
     }
 </script>

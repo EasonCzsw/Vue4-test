@@ -20,6 +20,9 @@ import VueResource from "vue-resource";
 // 导入 vue-preview
 import VuePreview from "vue-preview";
 
+// 导入 store
+import store from "./store/index.js";
+
 // 跨域配置
 // import axios from "axios";
 // import VueAxios from "vue-axios";
@@ -41,5 +44,6 @@ Vue.http.options.emulateJSON = true;
 var vm = new Vue({
   el: "#app",
   render: c => c(app),
-  router
+  router, // 路由挂载
+  store // vuex挂载
 });

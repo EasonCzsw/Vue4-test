@@ -29,15 +29,30 @@
                     </div>
                 </router-link>
             </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="#" @click="goCommit">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu4.png" alt="menu">
-                    <div class="mui-media-body">留言反馈</div></a></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+                    <div class="mui-media-body">留言反馈</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="#">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu5.png" alt="menu">
-                    <div class="mui-media-body">视频专区</div></a></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+                    <div class="mui-media-body">视频专区</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="#">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu6.png" alt="menu">                
-                    <div class="mui-media-body">联系我们</div></a></li>
+                    <div class="mui-media-body">联系我们</div>
+                    <!-- <div style="position: relative;">
+                        <input type="button" value="减少" @click="remove">
+                        <input type="button" value="增加" @click="add">
+                        <br>
+                        <input type="text" v-model="$store.getters.optCount">
+                    </div> -->
+                </a>
+            </li>
         </ul> 
     </div>
 </template>
@@ -70,6 +85,17 @@
                     });
                     this.List = list;
                 });
+            },
+            add() {
+                this.$store.commit('increment');
+            },
+            remove() {
+                this.$store.commit('subtract', 1);
+                // 最多支持两个参数
+                // this.$store.commit('subtract', {c:2,d:1})
+            },
+            goCommit() {
+                this.$router.push({ name: "shopcommit" })
             }
         },
         // 挂载组件

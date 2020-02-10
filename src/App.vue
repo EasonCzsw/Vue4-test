@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <!-- header 头部区域 -->
-    <mt-header fixed title="首页头部"></mt-header>
+    <mt-header fixed title="首页头部">
+      <span slot="left" @click="goBack" v-show="flag">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>
     <!-- main 内容区域 -->
     <transition mode="out-in">
       <router-view></router-view>
@@ -29,6 +33,33 @@
     </nav>
   </div>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        flag: false
+      }
+    },
+    created() {
+      this.flag = this.$route.path === "/home" ? false : true;
+    },
+    methods: {
+      goBack() {
+        this.$router.go(-1);
+      }
+    },
+    watch: {
+      '$route.path':function(newVal) {
+        if (newVal === "/home") {
+          this.flag = false;
+        } else {
+          this.flag = true;
+        }
+      }
+    },
+  }
+</script>
 
 <style lang="less">
 #app {

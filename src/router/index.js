@@ -13,6 +13,9 @@ import Shopping from "../components/shopping/shopping.vue";
 import Shopinfo from "../components/shopping/shopinfo.vue";
 import Shopdesc from "../components/shopping/shopmain/shopdesc.vue";
 import Shopcommit from "../components/shopping/shopmain/shopcommit.vue";
+import Movielist from "../components/tabbar/movie/movielist.vue";
+import Movie from "../components/tabbar/movie/movie.vue";
+import Me from "../components/tabbar/me/me.vue";
 
 const router = new VueRouter({
   routes: [
@@ -29,7 +32,10 @@ const router = new VueRouter({
     { path: "/home/shopping", component: Shopping },
     { path: "/home/shopinfo/:id", component: Shopinfo, name: "shopinfo" },
     { path: "/home/shopdesc/:id", component: Shopdesc, name: "shopdesc" },
-    { path: "/home/shopcommit/:id", component: Shopcommit, name: "shopcommit" }
+    { path: "/home/shopcommit/:id", component: Shopcommit, name: "shopcommit" },
+    { path: "/home/movielist", component: Movielist },
+    { path: "/home/movie/:id", component: Movie, name: "movie" },
+    { path: "/home/me", component: Me }
   ],
   linkActiveClass: "mui-active" // 覆盖默认的路由高亮类
 });

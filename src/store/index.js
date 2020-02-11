@@ -10,8 +10,9 @@ export default new Vuex.Store({
   // vuex的组件数据
   state: {
     // this.$store.state.***
-    car: car
+    car: car,
     // car中的数据合集{id:商品id,count:数量,price:单价,selected:false(是否选中)}
+    imgList: []
   },
   // vuex的组件方法
   mutations: {

@@ -8,25 +8,19 @@
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/newslist">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu1.png" alt="menu">
-                    <div class="mui-media-body">
-                        <a href="javascript:;" style="color: #333;">新闻资讯</a>
-                    </div>
+                    <div class="mui-media-body">新闻资讯</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/photolist">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu2.png" alt="menu">
-                    <div class="mui-media-body">
-                        <a href="javascript:;" style="color: #333;">图片分享</a>
-                    </div>
+                    <div class="mui-media-body">图片分享</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/shopping">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu3.png" alt="menu">
-                    <div class="mui-media-body">
-                        <a href="javascript:;" style="color: #333;">商品购买</a>
-                    </div>
+                    <div class="mui-media-body">商品购买</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -36,13 +30,13 @@
                 </a>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
+                <router-link to="/home/movielist">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu5.png" alt="menu">
                     <div class="mui-media-body">视频专区</div>
-                </a>
+                </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
+                <router-link to="/home/me">
                     <img class="menuImg" src="../../assets/六宫格小图标/menu6.png" alt="menu">                
                     <div class="mui-media-body">联系我们</div>
                     <!-- <div style="position: relative;">
@@ -51,7 +45,7 @@
                         <br>
                         <input type="text" v-model="$store.getters.optCount">
                     </div> -->
-                </a>
+                </router-link>
             </li>
         </ul> 
     </div>

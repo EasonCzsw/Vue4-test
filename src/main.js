@@ -4,7 +4,7 @@ import Vue from "vue";
 import Mint from "mint-ui";
 import VueRouter from "vue-router";
 
-import "../src/mui/mui-master/dist/css/mui.min.css";
+import "../src/mui/mui-master/dist/css/mui.css";
 import "../src/mui/mui-master/examples/hello-mui/css/icons-extra.css";
 import "mint-ui/lib/style.css";
 
